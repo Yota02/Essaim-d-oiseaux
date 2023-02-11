@@ -30,7 +30,7 @@ def animate_ball(nuee):
             width=1))
          
     
-    """
+    
     canvas.itemconfig(sprites[0], fill='green3', outline = "green3", 
                       width = 2)  
     cercle_0 = canvas.create_oval(
@@ -51,7 +51,7 @@ def animate_ball(nuee):
             nuee.essaim[0].position.x + nuee.essaim[0].perception[2],
             nuee.essaim[0].position.y + nuee.essaim[0].perception[2],
             outline="magenta", width=1)
-    """
+    
     while True :
 
         mvts = nuee.mouvement()
