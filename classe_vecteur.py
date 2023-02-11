@@ -76,14 +76,7 @@ class Vecteur:
         return self.x == v.x and self.y == v.y
     
     def normalisation(self):
-        # Transforme le vecteur courant en un vecteur de norme 1. Opération très courante
-        # même s'il est probable que c'est la première fois que vous entendez ce terme
-        # Si le vecteur est nul, on ne peut pas le normaliser. On renvoie une
-        # erreur dans ce cas. Si on veut arreter le programme)on peut remplacer le test par : 
-        # assert norme != 0 , "ERREUR : erreur de normalisation, vecteur nul" 
-        # ou encore
-        # if norme == 0 : 
-        #   raise ValueError('ERREUR : erreur de normalisation, vecteur nul')
+      
         norme = self.norme()
         if norme == 0 :
             print("AVERTISSEMENT : erreur de normalisation, vecteur nul")
@@ -92,16 +85,11 @@ class Vecteur:
             self.y = self.y/norme
     
     def prod_scal(self, v):
-        # Renvoie le produit scalaire du vecteur courant (self) avec un autre vecteur v
+       
         return self.x * v.x + self.y*v.y
         
     def angle(self, v):
-        # Calcule l'angle en degrés entre le vecteur courant (self) et un autre vecteur v
-        # C'est la méthode la plus efficace, qui donne un angle orienté. On l'a ici renvoyé en
-        # mesure entre entre 0 et 360°
-        # On calcule l'arctangente du rapport y/x, où x et y sont les deux arguments
-        # Le 1er argument de atan2 provient du produit vectoriel de u et v, que vous utiliserez
-        # dans le supérieur, et le 2ème : vous connaissez, qu'est-ce ?
+       
         angle = atan2(self.x * v.y - self.y * v.x, self.x * v.x + self.y * v.y)
         return (angle*180/pi) % 360
     
