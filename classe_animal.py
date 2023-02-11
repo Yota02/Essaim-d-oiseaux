@@ -53,16 +53,16 @@ class Animal:
         while self.vitesse.est_nul() :          # génération d'une vitesse aléatoire
             self.vitesse.x = uniform(-1,1)
             self.vitesse.y = uniform(-1,1)
-        self.vitesse.prodk(self.v_init/self.vitesse.norme()) # on met la norme de la vitesse à v_init
+        self.vitesse.prodk(self.v_init/self.vitesse.norme()) 
         self.perception = [25, 50, 100]     # separation, alignement, cohesion
         self.force = Vecteur(0, 0)
         
     def force_alea(self):
-        # Utilisée uniquement pour tester le déplacement d'un animal
+        
         self.force.x =  randint(1, 10)
         self.vitesse.y = randint(1, 10)
 
-        # On maximisera la force aléatoire exercée, décommenter les lignes suivantes
+        
         if self.force.norme() != 0 :
             self.force.prodk(self.force_max/self.force.norme())
             
@@ -88,7 +88,7 @@ class Animal:
         return zone
     
     def maj_position(self):
-        # self.force_alea()          # test avec une force aléatoire (question 2b) 
+     
         self.vitesse.somme(self.force)
     
         if self.vitesse.norme() > self.v_max:
