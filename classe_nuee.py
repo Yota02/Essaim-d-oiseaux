@@ -53,7 +53,7 @@ class Nuee:
         self.essaim = []
         self.l_univers = l_univers
         self.h_univers = h_univers
-        # Finir la construction de l'essaim
+        
         for i in range(nombre):
             self.essaim.append(Animal(self.l_univers, self.h_univers, i))
     
