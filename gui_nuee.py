@@ -29,7 +29,7 @@ def animate_ball(nuee):
             fill="Black", outline="Black", 
             width=1))
          
-    # Test des voisins : enlever les triples guillemets pour le bloc ci-dessous
+    
     """
     canvas.itemconfig(sprites[0], fill='green3', outline = "green3", 
                       width = 2)  
@@ -58,7 +58,6 @@ def animate_ball(nuee):
         if len(mvts) != len(sprites):
             raise IndexError("pas le même nombre de sprites et d'animaux")
 
-        # Test des voisins : enlever les triples guillemets pour le bloc ci-dessous
         
         mat_sep, mat_align, mat_coh = nuee.voisins()
         for i in range(1, len(mat_sep)): 
@@ -72,37 +71,20 @@ def animate_ball(nuee):
                 canvas.itemconfig(sprites[i], fill='black', outline="Black", width=1)
         
         for i in range(len(mvts)) :
-            #canvas.move(sprites[i], mvts[i].x , mvts[i].y)   # non fonctionnel (erreurs d'arrondi 
-                                                                # s'accumulant)
+            
             canvas.coords(sprites[i], 
                           nuee.essaim[i].position.x - taille,
                           nuee.essaim[i].position.y - taille,
                           nuee.essaim[i].position.x + taille,
                           nuee.essaim[i].position.y + taille)
-        # Test des voisins : enlever les triples guillemets pour le bloc ci-dessous
-        """
-        canvas.coords(cercle_0, 
-                      nuee.essaim[0].position.x - nuee.essaim[0].perception[0],
-                      nuee.essaim[0].position.y - nuee.essaim[0].perception[0],
-                      nuee.essaim[0].position.x + nuee.essaim[0].perception[0],
-                      nuee.essaim[0].position.y + nuee.essaim[0].perception[0])
-        canvas.coords(cercle_1, 
-                      nuee.essaim[0].position.x - nuee.essaim[0].perception[1],
-                      nuee.essaim[0].position.y - nuee.essaim[0].perception[1],
-                      nuee.essaim[0].position.x + nuee.essaim[0].perception[1],
-                      nuee.essaim[0].position.y + nuee.essaim[0].perception[1])
-        canvas.coords(cercle_2, 
-                      nuee.essaim[0].position.x - nuee.essaim[0].perception[2],
-                      nuee.essaim[0].position.y - nuee.essaim[0].perception[2],
-                      nuee.essaim[0].position.x + nuee.essaim[0].perception[2],
-                      nuee.essaim[0].position.y + nuee.essaim[0].perception[2])
-        """
+        
+     
         fenetre.update()
         time.sleep(RAFRAICHISSEMENT)    
         
 l_univers = LARGEUR_FENETRE - 100
 h_univers = HAUTEUR_FENETRE - 100
-nuee = Nuee(15, l_univers, h_univers)       # nombre d'animaux à modifier suivant puissance de l'ordi
+nuee = Nuee(15, l_univers, h_univers)       
 
 fenetre = tkinter.Tk()
 fenetre.title("Nuée d'oiseaux / banc de poisson / essaim d'insectes")
